@@ -20,7 +20,9 @@
       <h3>Basic json-file Demo</h3>
       <demo-snippet>
         <template>
-          <json-file></json-file>
+          <json-file file="resources.json" json="{{my_resources}}"></json-file>
+
+          <p><strong>My name is: </strong>[[my_resources.name]], [[my_resources.surname]]</p>
         </template>
       </demo-snippet>
     </div>

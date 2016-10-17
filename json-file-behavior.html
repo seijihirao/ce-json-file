@@ -1,0 +1,94 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<script>
+
+/**
+ * `CustomBehavior.AppJsonBehavior` is a json file reader behavior 
+ * with its code based on polymer `Polymer.AppLocalizeBehavior`
+ * 
+ * Sample application loading resources from an external file:
+ *
+ *	<dom-module id="x-app">
+ *		<template>
+ *			<div>[[json.name]]</div>
+ *		</template>
+ *		<script>
+ *			Polymer({
+ *				is: "x-app",
+ *
+ *				behaviors: [
+ *					CustomBehavior.AppJsonBehavior
+ *				],
+ *
+ *				properties: {
+ *					file: {
+ *						value: 'resources.json'
+ *					}
+ *				}
+ *			});
+ *		&lt;/script>
+ *	</dom-module>
+ *
+ */
+window.CustomBehavior = window.CustomBehavior || {}
+
+CustomBehavior.AppJsonBehavior = {
+
+	__requestCache: {
+		requests: {},  /* One iron-request per unique resources path. */
+		messages: {},  /* Unique localized strings. Invalidated when the language, formats or resources change. */
+		ajax: null     /* Global iron-ajax object used to request resource files. */
+	}					
+
+	properties:{
+		file: {
+			type: String,file: {
+ *						value: 'resource.json'
+	*							}
+			observer: '_fileChanged'
+		}
+	},
+
+	loadJsonResources: function(path) {
+		var proto = this.constructor.prototype;
+
+		// If the global ajax object has not been initialized, initialize and cache it.
+		var ajax = proto.__requestCache.ajax;
+		if (!ajax) {
+			ajax = proto.__requestCache.ajax = document.createElement('iron-ajax');
+		}
+
+		var request = proto.__requestCache.requests[path];
+		if (!request) {
+			ajax.url = path;
+			var request = ajax.generateRequest();
+
+			request.completes.then(
+					this.__onJsonRequestResponse.bind(this),
+					this.__onJsonRequestError.bind(this));
+
+			// Cache the instance so that it can be reused if the same path is loaded.
+			proto.__requestCache.requests[path] = request;
+		} else {
+			request.completes.then(
+					this.__onJsonRequestResponse.bind(this),
+					this.__onJsonRequestError.bind(this));
+		}
+	},
+	__onJsonRequestResponse: function(event) {
+		this.json = event.response;
+		this.fire('app-resources-loaded');
+	},
+
+	__onJsonRequestError: function(event) {
+		this.fire('app-resources-error');
+	},
+
+	_fileChanged: function() {
+		this.loadJsonResources(this.resolveUrl(this.file))
+	}
+
+}
+
+</script>

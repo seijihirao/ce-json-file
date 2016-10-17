@@ -1,34 +1,39 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="json-file-behavior.html">
 
 <!--
-`json-file`
-Json file reader
+The `json-file` element reads a json file
 
 @demo demo/index.html 
 -->
 
 <dom-module id="json-file">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]</h2>
-  </template>
+	<script>
+		Polymer({
 
-  <script>
-    Polymer({
+			is: 'json-file',
+			
+			behaviors: [
+				CustomBehavior.AppJsonBehavior
+			],
 
-      is: 'json-file',
+			properties: {
+				/**
+				 * The file to be read
+				 */
+				file: {
+					type: String,
+					observer: '_fileChanged'
+				},
+				/**
+				 * Json read from file
+				 */
+				json: {
+					type: Object,
+					notify: true
+				}
+			},
 
-      properties: {
-        prop1: {
-          type: String,
-          value: 'json-file',
-        },
-      },
-
-    });
-  </script>
+		});
+	</script>
 </dom-module>
