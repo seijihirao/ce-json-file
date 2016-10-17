@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`json-file`
+Json file reader
+
+@demo demo/index.html 
+-->
+
+<dom-module id="json-file">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'json-file',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'json-file',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
