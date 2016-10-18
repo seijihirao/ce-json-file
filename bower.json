@@ -1,7 +1,7 @@
 {
-  "name": "json-file",
+  "name": "ce-json-file",
   "description": "Json file reader",
-  "main": "json-file.html",
+  "main": "ce-json-file.html",
   "keywords": [
     "json",
     "file",

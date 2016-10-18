@@ -1,0 +1,26 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="ce-json-file-behavior.html">
+
+<!--
+The `ce-json-file` element reads a json file
+
+    <ce-json-file
+        path="pathto/myfile.json"
+        json="{{my_json}}"></ce-json-file>
+
+@demo demo/index.html 
+-->
+
+<dom-module id="ce-json-file">
+	<script>
+		Polymer({
+
+			is: 'ce-json-file',
+			
+			behaviors: [
+				CustomElements.AppJsonBehavior
+			]
+
+		});
+	</script>
+</dom-module>

@@ -46,9 +46,8 @@ CustomElements.AppJsonBehavior = {
 		/**
 		 * The file to be read
 		 */
-		file: {
-			type: String,
-			observer: '_fileChanged'
+		path: {
+			type: String
 		},
 		/**
 		 * Json read from file
@@ -58,6 +57,10 @@ CustomElements.AppJsonBehavior = {
 			notify: true
 		}
 	},
+
+	observers: [
+		'_fileChanged(path)'
+	],
 	
 	/**
 	 * Loads json file into json object
@@ -99,8 +102,8 @@ CustomElements.AppJsonBehavior = {
 		this.fire('json-resources-error');
 	},
 
-	_fileChanged: function() {
-		this.loadJsonResources(this.resolveUrl(this.file));
+	_fileChanged: function(path) {
+		this.loadJsonResources(this.resolveUrl(this.path));
 	}
 
 }
