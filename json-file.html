@@ -4,6 +4,10 @@
 <!--
 The `json-file` element reads a json file
 
+    <json-file
+        file="pathto/myfile.json"
+        json="{{my_json}}"></json-file>
+
 @demo demo/index.html 
 -->
 
@@ -14,25 +18,8 @@ The `json-file` element reads a json file
 			is: 'json-file',
 			
 			behaviors: [
-				CustomBehavior.AppJsonBehavior
-			],
-
-			properties: {
-				/**
-				 * The file to be read
-				 */
-				file: {
-					type: String,
-					observer: '_fileChanged'
-				},
-				/**
-				 * Json read from file
-				 */
-				json: {
-					type: Object,
-					notify: true
-				}
-			},
+				CustomElements.AppJsonBehavior
+			]
 
 		});
 	</script>

@@ -20,9 +20,14 @@
       <h3>Basic json-file Demo</h3>
       <demo-snippet>
         <template>
-          <json-file file="resources.json" json="{{my_resources}}"></json-file>
+          <json-file file="demo/resources.json" json="{{resource}}"></json-file>
 
-          <p><strong>My name is: </strong>[[my_resources.name]], [[my_resources.surname]]</p>
+          <p><strong>My name is: </strong>[[resource.surname]], [[resource.name]] [[resource.surname]]</p>
+        </template>
+        <template is="dom-bind">
+          <json-file file="demo/resources.json" json="{{resource}}"></json-file>
+
+          <p><strong>My name is: </strong>[[resource.surname]], [[resource.name]] [[resource.surname]]</p>
         </template>
       </demo-snippet>
     </div>
