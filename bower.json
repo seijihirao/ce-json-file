@@ -2,6 +2,15 @@
   "name": "json-file",
   "description": "Json file reader",
   "main": "json-file.html",
+  "keywords": [
+    "json",
+    "file",
+    "polymer",
+    "web",
+    "component",
+    "web component",
+    "web-components"
+  ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-ajax": "^1.4.3"
