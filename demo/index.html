@@ -19,11 +19,6 @@
     <div class="vertical-section-container centered">
       <h3>Basic ce-json-file Demo</h3>
       <demo-snippet>
-        <template>
-          <ce-json-file path="demo/resources.json" json="{{resource}}"></ce-json-file>
-
-          <p><strong>My name is: </strong>[[resource.surname]], [[resource.name]] [[resource.surname]]</p>
-        </template>
         <template is="dom-bind">
           <ce-json-file path="demo/resources.json" json="{{resource}}"></ce-json-file>
 
