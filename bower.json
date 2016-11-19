@@ -1,7 +1,10 @@
 {
   "name": "ce-json-file",
+  "version": "0.3.0",
   "description": "Json file reader",
-  "main": "ce-json-file.html",
+  "authors": [
+    "Rodrigo Seiji Piubeli Hirao"
+  ],
   "keywords": [
     "json",
     "file",
@@ -11,6 +14,13 @@
     "web component",
     "web-components"
   ],
+  "main": "ce-json-file.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seijihirao/ce-json-file.git"
+  },
+  "license": "LICENSE.txt",
+  "homepage": "https://github.com/seijihirao/ce-json-file",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-ajax": "^1.4.3"
