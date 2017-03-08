@@ -1,5 +1,6 @@
 # \<json-file\>
 
+[![Bower version](https://badge.fury.io/bo/ce-json-file.svg)](https://badge.fury.io/bo/ce-json-file)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/seijihirao/ce-json-file)
 
 Json file reader element
