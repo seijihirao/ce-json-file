@@ -20,9 +20,9 @@ $ bower install --save ce-json-file
 ## USING
 
 ```HTML
-    <json-file
+    <ce-json-file
         file="pathto/myfile.json"
-        json="{{my_json}}"></json-file>
+        json="{{my_json}}"></ce-json-file>
 ```
 
 # CustomElements.AppJsonBehavior
