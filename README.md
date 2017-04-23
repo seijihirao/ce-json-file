@@ -21,7 +21,7 @@ $ bower install --save ce-json-file
 
 ```HTML
     <ce-json-file
-        file="pathto/myfile.json"
+        path="pathto/myfile.json"
         json="{{my_json}}"></ce-json-file>
 ```
 
