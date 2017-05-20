@@ -1,5 +1,5 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="ce-json-file-behavior.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="ce-json-file-mixin.html">
 
 <!--
 The `ce-json-file` element reads a json file
@@ -13,14 +13,12 @@ The `ce-json-file` element reads a json file
 
 <dom-module id="ce-json-file">
 	<script>
-		Polymer({
+		class CeJsonFile extends CustomElements.AppJsonMixin(Polymer.Element) {
 
-			is: 'ce-json-file',
-			
-			behaviors: [
-				CustomElements.AppJsonBehavior
-			]
+			static get is(){ return 'ce-json-file' }
 
-		});
+		}
+
+		customElements.define(CeJsonFile.is, CeJsonFile)
 	</script>
 </dom-module>
