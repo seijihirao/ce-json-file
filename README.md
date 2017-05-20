@@ -5,6 +5,10 @@
 
 Json file reader element
 
+## [DROPPED]
+
+This project was dropped because you can do the same thing as easy with `iron-ajax`
+
 ## INSTALL
 
 ```
